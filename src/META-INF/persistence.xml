@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence      http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+    
+    <!-- a sample persistence-unit -->
+    
+    <!-- the persistence unit name, don't change this -->
+    <persistence-unit name="fileScanner">
+        <properties>
+				    <!-- change the database dialect and driver depending on your target database -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect"/>
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.connection.username" value="your_username"/>
+				    <!-- this is the jasypt encrypted password. the private passphrase to use to generate this is held in the STRONG_ENCRYPTOR_PASSWORD variable of class om.rhad.filescanner.persistence.EntityManagerFactoryUtil -->
+            <property name="hibernate.connection.password" value="your_password"/>
+            <property name="hibernate.connection.url" value="your_connection_url"/>
+				    <!-- change this only if you want to modify the default behavior of the application -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+				    <property name="hibernate.connection.provider_class" value="org.jasypt.hibernate.connectionprovider.EncryptedPasswordC3P0ConnectionProvider"/>
+            <property name="hibernate.connection.encryptor_registered_name" value="configurationHibernateEncryptor"/>
+            <property name="hibernate.c3p0.acquire_increment" value="3"/>
+            <property name="hibernate.c3p0.min_size" value="3"/>
+            <property name="hibernate.c3p0.max_size" value="20"/>
+            <property name="hibernate.c3p0.timeout" value="7200"/>
+            <property name="hibernate.c3p0.idle_test_period" value="600"/>
+            <property name="hibernate.c3p0.max_statements" value="60"/>
+        </properties>
+    </persistence-unit>
+    
+</persistence>
