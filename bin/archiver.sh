@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/bash
 
 ARCH_PATH=$1
 SCAN_PATHS=$2

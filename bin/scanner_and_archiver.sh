@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/bash
 
 dir=`dirname $0`
 FILE_PATH=`cd  $dir;pwd`
